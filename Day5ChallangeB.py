@@ -26,12 +26,12 @@ for i in range(len(schemeData)):
     fromStack = int(fromStack)
     targetStack = int(targetStack)
 
-    for a in range(nrOfCrates):
-        temp = stacksArray[fromStack - 1][len(stacksArray[fromStack - 1]) - 1]
-        print(nrOfCrates, fromStack, targetStack)
-        stacksArray[fromStack - 1].pop(len(stacksArray[fromStack - 1]) - 1)
-        stacksArray[targetStack - 1].append(temp)
+    temp = stacksArray[fromStack - 1][-nrOfCrates:]
+    print(temp)
+    stacksArray[fromStack - 1] = stacksArray[fromStack - 1][:-nrOfCrates]
+    stacksArray[targetStack - 1].extend(temp)
 
 print(stacksArray)
+
 
 
