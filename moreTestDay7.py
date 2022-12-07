@@ -25,8 +25,8 @@ sizes = []
 
 def collect_tiny_sums(input_dict):
     temp = get_sum_size(input_dict)
-    if temp <= 100000:
-        sizes.append(temp)
+    #if temp <= 100000:
+    sizes.append(temp)
     for child in input_dict.items():
         if not child[0] == "size":
             collect_tiny_sums(child[1])
@@ -72,3 +72,16 @@ totalSizeInUse = sizes[0]
 print(sizes)
 print("A:", sum(sizes))
 print("Available:", 70000000 - totalSizeInUse)
+
+sizes.pop(0)
+sizes.pop(0)
+
+#We need to free 8518336
+needToFree = 8518336
+newList = []
+
+for s in sizes:
+    if s >= needToFree:
+        newList.append(s)
+
+print(min(newList))
